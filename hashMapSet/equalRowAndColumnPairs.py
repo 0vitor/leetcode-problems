@@ -6,8 +6,7 @@ class Solution:
         count = 0
         for row in grid:
             row_counts[tuple(row)] += 1
-        print(row_counts)
-            
+
         for column in zip(*grid): 
             count += row_counts[column]
         return count
