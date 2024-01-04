@@ -1,4 +1,17 @@
 class Solution:
+    def mdc(self, a, b):
+        while b:
+            a, b = b, a % b
+        return a
+
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if str1 + str2 != str2 + str1:
+            return ""
+            
+        return str1[:self.mdc(len(str1), len(str2))]
+
+
+class Solution2:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
         largestSubstring = str2
 
@@ -11,7 +24,6 @@ class Solution:
                 print(largestSubstring)
                 divisebleStr1 = False
                 divisebleStr2 = False
-
                 while(largestSubstringLen*end <= len(str1) or largestSubstringLen <= len(str2)):
                     sliceStr1 = str1[largestSubstringLen*start:largestSubstringLen*end]
                     sliceStr2 = str2[largestSubstringLen*start:largestSubstringLen*end]
@@ -35,6 +47,7 @@ class Solution:
             largestSubstring = largestSubstring[:-1]
 
         return largestSubstring
+
 
 solucao = Solution()
 str1 = input()
